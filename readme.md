@@ -1,3 +1,6 @@
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=EL-BID_Fontagro&metric=alert_status)](https://sonarcloud.io/dashboard?id=EL-BID_Fontagro)
+[![Analytics](https://gabeacon.irvinlim.com/UA-4677001-16/Fontagro/readme?useReferer)](https://github.com/EL-BID/Fontagro)
+
 # Plataforma de Proyectos FONTAGRO
 ---
 El objetivo es disponer de un​ nuevo sistema integrado con toda la información vinculada  al nudo de los contenidos, que son precisamente los proyectos. 
@@ -47,7 +50,7 @@ Desarrollado por Coopetariva Animus LTDA
 
 ### Licencia para el código de la herramienta
 ---
-Por favor vea la licencia MIT en https://github.com/animus-coop/fontagro-plataforma/blob/master/license.txt
+Por favor vea la licencia AM-331-A3 en https://github.com/EL-BID/Fontagro/blob/master/LICENSE.md
 
 ### Licencia para la documentación de la herramienta
 ---
