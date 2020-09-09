@@ -3,11 +3,26 @@
 
 # Plataforma de Proyectos FONTAGRO
 ---
-El objetivo es disponer de un​ nuevo sistema integrado con toda la información vinculada  al nudo de los contenidos, que son precisamente los proyectos. 
+Es una aplicación web que permite diseñar, gestionar y analizar proyectos de investigación. 
 
-La plataforma es​ escalable​, al estar todo almacenado en bases de datos relacionadas, ​no hay información duplicada, se evitan errores de carga y se​ optimizan los tiempos​ de búsqueda de información y de actualización de datos. 
+Ofrece un conjunto de herramientas para una comunicación y gestión del conocimiento moderna y eficiente y el ágil ingreso y monitoreo de proyectos de investigación.
 
-Bajo estas premisas, se cuenta con una plataforma apta para administrar los proyectos y las propuestas del ecosistema de FONTAGRO.
+![](https://i.imgur.com/vi46z5d.jpg)
+
+El principal objetivo de la plataforma es unificar la información generada por los proyectos y visibilizar los resultados para facilitar la transferencia de tecnología.
+
+Una vez implementada la herramienta, se logra disponer de bases de datos que permiten tomar decisiones de manera más eficiente.
+
+La herramienta ofrece a los investigadores una oportunidad para disminuir tiempos y costos en la generación de productos de conocimiento y diseminación.
+
+![](https://i.imgur.com/FHeykNd.png)
+
+
+### Detalles del proyecto
+
+Para conocer más sobre este proyecto, visita el siguiente enlace: 
+http://digital.fontagro.org/nueva-plataforma-digital-fontagro/
+
 
 ### Guía de instalación
 ---
@@ -43,10 +58,16 @@ Ir a la direccion: url_de_instalacion/admin y loguearse con el usuario "admin@ad
 
 ### Guía de usuario
 ---
+Una vez instalado el sistema lo primero que se requiere es ingresar al panel de administración a cargar la información de la plataforma. 
+
+El instructivo para realizar la carga como usuario administrador se encuentra en https://github.com/EL-BID/Fontagro/blob/master/guias/Instructivos_administrador.pdf
+
+El instructivo para realizar la carga como usuario investigador se encuentra en https://github.com/EL-BID/Fontagro/blob/master/guias/Instructivos_investigadores.pdf
+
 
 ### Autores
 ---
-Desarrollado por Coopetariva Animus LTDA
+Desarrollado por Cooperativa Animus (http://www.animus.com.ar)
 
 ### Licencia para el código de la herramienta
 ---
@@ -58,7 +79,7 @@ Licencia CC0 http://creativecommons.org/publicdomain/zero/1.0/
 
 ## Limitación de responsabilidades
 ---
-Animus Coop LTDA. no será responsable, bajo circunstancia alguna, de daño ni indemnización, moral o patrimonial; directo o indirecto; accesorio o especial; o por vía de consecuencia, previsto o imprevisto, que pudiese surgir:
+La Cooperativa de Trabajo Animus LTDA. no será responsable, bajo circunstancia alguna, de daño ni indemnización, moral o patrimonial; directo o indirecto; accesorio o especial; o por vía de consecuencia, previsto o imprevisto, que pudiese surgir:
 
 i. Bajo cualquier teoría de responsabilidad, ya sea por contrato, infracción de derechos de propiedad intelectual, negligencia o bajo cualquier otra teoría; y/o
 
