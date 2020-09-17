@@ -21,18 +21,6 @@ class Fontagro extends MY_Model {
 		return $where;
 	}
 
-	protected function getWhereObligado(){
-		return '';
-	}
-
-    
-    protected function validar($id, $data){
-        $sar = parent::validar($id, $data);
-        if(!empty($sar)){
-            return $sar;
-		}   	
-		return ''; 		     
-	}
 	
 }
 

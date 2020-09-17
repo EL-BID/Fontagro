@@ -21,18 +21,6 @@ class Ista extends MY_Model {
 		return $where;
 	}
 
-	protected function getWhereObligado(){
-		return '';
-	}
-
-    
-    protected function validar($id, $data){
-        $sar = parent::validar($id, $data);
-        if(!empty($sar)){
-            return $sar;
-		}   	
-		return '';   
-	}
 	public function obtenerId($idcallista, $idpropuesta){
 		$query = $this->db->query("SELECT idista FROM Ista WHERE idpropuesta=? AND idcallista=?", array($idpropuesta, $idcallista));
 		$resultado = $query->result_array();

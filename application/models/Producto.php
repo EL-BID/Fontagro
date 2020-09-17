@@ -23,18 +23,6 @@ class Producto extends MY_Model {
 		return $where;
 	}
 
-	protected function getWhereObligado(){
-		return '';
-	}
-
-    
-    protected function validar($id, $data){
-        $sar = parent::validar($id, $data);
-        if(!empty($sar)){
-            return $sar;
-		}   	
-		return '';       
-	}
 
 	public function getTipos(){
 		$query=$this->db->query("SELECT * FROM ProductoTipo_lang WHERE codlang='es' ORDER BY nombre");

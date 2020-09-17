@@ -10,30 +10,6 @@ class Tema extends MY_Model {
           $this->idname = "id";
     }
 
-
-
-	protected function getWhere($params){
-		$search = $params['busqueda'];
-		$where = "WHERE 1=1 ";
-		if(!empty($search)){
-			$where .= "AND (nombre like '%".$this->db->escape_like_str($search)."%') ";
-		}
-		return $where;
-	}
-
-	protected function getWhereObligado(){
-		return '';
-	}
-
-    
-    protected function validar($id, $data){
-        $sar = parent::validar($id, $data);
-        if(!empty($sar)){
-            return $sar;
-		}   	
-		return '';       
-	}
-
     public function eliminarSeguro($id){
 		$query=$this->db->query("SELECT * FROM Propuesta_Tema WHERE idtema=?",$id);
 		$resultado=$query->result_array();

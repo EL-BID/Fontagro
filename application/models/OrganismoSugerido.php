@@ -21,19 +21,6 @@ class OrganismoSugerido extends MY_Model {
 		return $where;
 	}
 
-	protected function getWhereObligado(){
-		return '';
-	}
-
-    
-    protected function validar($id, $data){
-        $sar = parent::validar($id, $data);
-        if(!empty($sar)){
-            return $sar;
-		}   	
-		return '';     
-	}
-
 	public function setAprobado($idsugerido){
 		$query=$this->db->query("UPDATE {$this->table} SET aprobado=1 WHERE {$this->idname}=?",$idsugerido);
 	}

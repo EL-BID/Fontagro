@@ -25,11 +25,6 @@ class Usuario extends MY_Model {
 		}
 		return $where;
 	}
-
-	protected function getWhereObligado(){
-		return '';
-	}
-
     
     public function getTipoUsuario($soloCoor=false){
         $query=$this->db->query("SELECT * FROM tipousuario");

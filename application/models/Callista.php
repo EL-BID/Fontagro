@@ -21,18 +21,6 @@ class Callista extends MY_Model {
 		return $where;
 	}
 
-	protected function getWhereObligado(){
-		return '';
-	}
-
-    
-    protected function validar($id, $data){
-        $sar = parent::validar($id, $data);
-        if(!empty($sar)){
-            return $sar;
-		}   	
-		return '';       
-	}
 
 	public function getAbiertas($codlang, $idusuario){
 		$query=$this->db->query("SELECT vc.*, p.idpropuesta, p.web_foto, pl.titulo_simple 

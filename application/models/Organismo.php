@@ -20,11 +20,6 @@ class Organismo extends MY_Model {
 		}
 		return $where;
 	}
-
-	protected function getWhereObligado(){
-		return '';
-	}
-
     
     protected function validar($id, $data){
         $sar = parent::validar($id, $data);

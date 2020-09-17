@@ -12,23 +12,6 @@ class Lenguaje extends MY_Model {
     }
 
 
-	protected function getWhere($params){
-		$search = $params['busqueda'];
-		$where = "WHERE 1=1 ";
-		if(!empty($search)){
-			$where .= "AND (nombre like '%".$this->db->escape_like_str($search)."%' ) ";
-		}
-		return $where;
-	}
-    
-    protected function validar($id, $data){
-        $sar = parent::validar($id, $data);
-        if(!empty($sar)){
-            return $sar;
-        }        
-        return '';      
-	}
-	
 	public function getByCodigo($codigo){
 		$query=$this->db->query("SELECT * FROM {$this->vista} WHERE codlang=?", array($codigo));
 			$resultado=$query->result_array();

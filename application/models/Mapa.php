@@ -11,29 +11,6 @@ class Mapa extends MY_Model {
     }
 
 
-
-	protected function getWhere($params){
-		$search = $params['busqueda'];
-		$where = "WHERE idpropuesta=".$params['idpropuesta']." ";
-		if(!empty($search)){
-			$where .= "AND (nombre like '%".$this->db->escape_like_str($search)."%') ";
-		}
-		return $where;
-	}
-
-	protected function getWhereObligado(){
-		return '';
-	}
-
-    
-    protected function validar($id, $data){
-        $sar = parent::validar($id, $data);
-        if(!empty($sar)){
-            return $sar;
-		}   	
-		return '';       
-	}
-
 	public function obtener($idpropuesta, $idmapa){
 		$retorno = array();
 		$query = $this->db->query("SELECT * FROM {$this->table} a WHERE idpropuesta=? AND {$this->idname} = ?", array($idpropuesta, $idmapa));

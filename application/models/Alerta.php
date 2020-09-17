@@ -20,20 +20,6 @@ class Alerta extends MY_Model {
 		}
 		return $where;
 	}
-
-	protected function getWhereObligado(){
-		return '';
-	}
-
-    
-    protected function validar($id, $data){
-        $sar = parent::validar($id, $data);
-        if(!empty($sar)){
-            return $sar;
-		}   	
-		return '';       
-	}
-
     public function crear($titulo, $contenido, $link){
 		$query=$this->db->query("INSERT INTO Alerta(titulo, contenido, link) VALUES(?,?,?)",Array($titulo, $contenido, $link));
 		return $this->db->insert_id();

@@ -21,18 +21,6 @@ class Tecnica extends MY_Model {
 		return $where;
 	}
 
-	protected function getWhereObligado(){
-		return '';
-	}
-
-    
-    protected function validar($id, $data){
-        $sar = parent::validar($id, $data);
-        if(!empty($sar)){
-            return $sar;
-		}   	
-		return '';       
-	}
 	/*
 	public function getAllIndicador($codlang){
 		$query=$this->db->query("SELECT indicador value, CONCAT(indicador, ' (', count(*), ')' )  label FROM Tecnica_lang WHERE codlang=? GROUP BY indicador ORDER BY count(*) desc", array($codlang));

@@ -21,18 +21,6 @@ class Info extends MY_Model {
 		return $where;
 	}
 
-	protected function getWhereObligado(){
-		return '';
-	}
-
-    
-    protected function validar($id, $data){
-        $sar = parent::validar($id, $data);
-        if(!empty($sar)){
-            return $sar;
-		}   	
-		return '';       
-	}
 	
 	public function actualizar($codlang, $codigo, $valor, $indice){
 		$query=$this->db->query("REPLACE INTO {$this->table} (codlang, codigo, valor, indice) VALUES(?,?,?,?)", array($codlang, $codigo, $valor, $indice));			

@@ -21,19 +21,7 @@ class Item extends MY_Model {
 		return $where;
 	}
 
-	protected function getWhereObligado(){
-		return '';
-	}
-
     
-    protected function validar($id, $data){
-        $sar = parent::validar($id, $data);
-        if(!empty($sar)){
-            return $sar;
-		}   	
-		return '';       
-	}
-	
 	public function getAllOrganismoEjecutor(){
 		$query=$this->db->query("SELECT DISTINCT idorganismo value, CONCAT(organismo,' - ',pais) label FROM v_Item WHERE participacion='Ejecutor' ORDER BY CONCAT(organismo,' - ',pais) ", array());
 		$resultado=$query->result_array();		

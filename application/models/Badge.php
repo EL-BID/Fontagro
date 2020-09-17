@@ -7,7 +7,8 @@ class Badge extends MY_Model {
           parent::__construct();
           $this->table = "BadgeODS";
           $this->vista = "v_BadgeODS";
-          $this->idname = "idbadgeods";
+		  $this->idname = "idbadgeods";
+		  $this->eliminarSeguro =  "Webstory_BadgeODS WHERE idbadgeods=?";
     }
 
 
@@ -21,18 +22,6 @@ class Badge extends MY_Model {
 		return $where;
 	}
 
-	protected function getWhereObligado(){
-		return '';
-	}
-
-    
-    protected function validar($id, $data){
-        $sar = parent::validar($id, $data);
-        if(!empty($sar)){
-            return $sar;
-		}   	
-		return '';       
-	}
 
     public function eliminarSeguro($id){
 		$query=$this->db->query("SELECT * FROM Webstory_BadgeODS WHERE {$this->idname}=?",$id);
