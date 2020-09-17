@@ -13,25 +13,22 @@ class Tech extends MY_Model {
 
 
 	protected function getWhere($params){
-		$search = $params['busqueda'];
-		$where = "WHERE 1=1 ";
-		if(!empty($search)){
-			$where .= "AND (titulo_simple like '%".$this->db->escape_like_str($search)."%' OR identificador like '%".$this->db->escape_like_str($search)."%' OR url like '%".$this->db->escape_like_str($search)."%' OR titulo like '%".$this->db->escape_like_str($search)."%' OR tech_titulo like '%".$this->db->escape_like_str($search)."%' ) ";
+		$adonde = " WHERE 1=1 ";
+		if(!empty($params['busqueda'])){
+			$adonde .= "AND (titulo_simple like '%".$this->db->escape_like_str($params['busqueda'])."%' OR identificador like '%".$this->db->escape_like_str($params['busqueda'])."%' OR url like '%".$this->db->escape_like_str($params['busqueda'])."%' OR titulo like '%".$this->db->escape_like_str($params['busqueda'])."%' OR tech_titulo like '%".$this->db->escape_like_str($params['busqueda'])."%' ) ";
 		}
 		if($this->session->userdata('role')==4){
-			$where .= " AND idwebstory IN (SELECT w.idwebstory FROM Propuesta_usuario p JOIN Webstory w ON p.idpropuesta=w.idpropuesta WHERE w.deleted IS NULL AND idusuario=".$this->session->userdata('idusuario').") ";
+			$adonde .= " AND idwebstory IN (SELECT w.idwebstory FROM Propuesta_usuario p JOIN Webstory w ON p.idpropuesta=w.idpropuesta WHERE w.deleted IS NULL AND idusuario=".$this->session->userdata('idusuario').") ";
 		}
-		return $where;
+		return $adonde;
 	}
     
     protected function validar($id, $data){
-        $sar = parent::validar($id, $data);
-        if(!empty($sar)){
-            return $sar;
-		}   	
+        $retorno = parent::validar($id, $data);
+        if(!empty($retorno)) return $retorno;
 		
-        $query = $this->db->query("SELECT * FROM {$this->table} w WHERE w.idwebstory = ?", array($data['idwebstory']['val']));
-        $result = $query->result_array();
+        $consulta = $this->db->query("SELECT * FROM {$this->table} w WHERE w.idwebstory = ?", array($data['idwebstory']['val']));
+        $result = $consulta->result_array();
         if (!$result || empty($result)) {
 			return ''; 
 		}else{            
@@ -39,7 +36,7 @@ class Tech extends MY_Model {
                 return ''; 
 			}
 			if($id==0 && !empty($result[0]['deleted'])){
-				$query = $this->db->query("DELETE FROM {$this->table} WHERE idwebstory = ? AND deleted IS NOT NULL", array($data['idwebstory']['val']));
+				$this->db->query("DELETE FROM {$this->table} WHERE idwebstory = ? AND deleted IS NOT NULL", array($data['idwebstory']['val']));
 				return '';
 			}
             return 'tech de webstory duplicado';

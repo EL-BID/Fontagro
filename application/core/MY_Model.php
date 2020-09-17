@@ -307,5 +307,25 @@ abstract class MY_Model extends CI_Model  {
 		}
 	}
 
+	public function insertOrUpdateLanguagePropuesta($id, $datas_lang){
+		foreach($datas_lang as $codlang=>$data){
+			$query=$this->db->query("INSERT IGNORE INTO {$this->table}_lang (codlang, {$this->idname}) VALUES('$codlang', $id)");
+			$campos = '';
+			$values = array();
+			foreach($data as $k=>$d){
+			  if(!empty($campos)){
+				$campos.=',';
+			  }
+			  $campos.=$k.'=?';
+			  $values[]=$d;
+			}
+			$str = "UPDATE {$this->table}_lang SET $campos 
+						WHERE codlang='$codlang' AND {$this->idname} = $id ";
+			$query=$this->db->query($str, $values);	
+			if($this->loggear){
+				$this->db->query("INSERT INTO Logs(entidad, sentencia, idusuario, idprincipal, funcion) VALUES(?,?,?,?,?) ", Array($this->table, $str.json_encode($values), $this->session->userdata('idusuario'), $id, 'insertOrUpdateLanguage'));
+			} 
+		}
+	}
   }
 ?>
