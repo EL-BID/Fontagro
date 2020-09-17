@@ -8,6 +8,7 @@ class Organismo extends MY_Model {
           $this->table = "Organismo";
           $this->vista = "v_Organismo";
           $this->idname = "idorganismo";
+		  $this->eliminarSeguro =  "SELECT * FROM Item WHERE idorganismo=?";
     }
 
 
@@ -38,19 +39,6 @@ class Organismo extends MY_Model {
         }     
 	}
 
-    public function eliminarSeguro($id){
-		$query=$this->db->query("SELECT * FROM Item WHERE {$this->idname}=?",$id);
-		$resultado=$query->result_array();
-		if(empty($resultado)){
-			$query=$this->db->query("DELETE FROM {$this->table} WHERE {$this->idname}=?",$id);
-			if($this->loggear){
-				$this->db->query("INSERT INTO Logs(entidad, sentencia, idusuario, idprincipal, funcion) VALUES(?,?,?,?,?) ", Array($this->table, "DELETE FROM {$this->table} WHERE {$this->idname}={$id}", $this->session->userdata('idusuario'), $id, 'eliminarSeguro') );
-			}
-			return '';
-		}else{
-			return 'No se puede eliminar un elemento en uso';
-		}
-	}
 
 	public function getByPropuesta($idpropuesta){
 		$query=$this->db->query("SELECT o.idorganismo, o.nombre, o.nombre_largo, o.logo, o.pais 

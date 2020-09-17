@@ -7,23 +7,9 @@ class Tema extends MY_Model {
           parent::__construct();
           $this->table = "Tema";
           $this->vista = "v_Tema";
-          $this->idname = "id";
+		  $this->idname = "id";
+		  $this->eliminarSeguro = "SELECT * FROM Propuesta_Tema WHERE idtema=?";
     }
-
-    public function eliminarSeguro($id){
-		$query=$this->db->query("SELECT * FROM Propuesta_Tema WHERE idtema=?",$id);
-		$resultado=$query->result_array();
-		if(empty($resultado)){
-			$query=$this->db->query("DELETE FROM {$this->table}_lang WHERE {$this->idname}=?",$id);
-			$query=$this->db->query("DELETE FROM {$this->table} WHERE {$this->idname}=?",$id);
-			if($this->loggear){
-				$this->db->query("INSERT INTO Logs(entidad, sentencia, idusuario, idprincipal, funcion) VALUES(?,?,?,?,?) ", Array($this->table, "DELETE FROM {$this->table} WHERE {$this->idname}={$id}", $this->session->userdata('idusuario'), $id, 'eliminarSeguro') );
-			}
-			return '';
-		}else{
-			return 'No se puede eliminar un elemento en uso';
-		}
-	}
 
 	public function getTemasPropuesta($idpropuesta){
 		$query=$this->db->query("SELECT * FROM Propuesta_Tema WHERE idpropuesta=?", Array($idpropuesta));

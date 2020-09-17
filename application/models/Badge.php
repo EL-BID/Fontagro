@@ -8,7 +8,7 @@ class Badge extends MY_Model {
           $this->table = "BadgeODS";
           $this->vista = "v_BadgeODS";
 		  $this->idname = "idbadgeods";
-		  $this->eliminarSeguro =  "Webstory_BadgeODS WHERE idbadgeods=?";
+		  $this->eliminarSeguro =  "SELECT * FROM Webstory_BadgeODS WHERE idbadgeods=?";
     }
 
 
@@ -22,21 +22,6 @@ class Badge extends MY_Model {
 		return $where;
 	}
 
-
-    public function eliminarSeguro($id){
-		$query=$this->db->query("SELECT * FROM Webstory_BadgeODS WHERE {$this->idname}=?",$id);
-		$resultado=$query->result_array();
-		if(empty($resultado)){
-			$query=$this->db->query("DELETE FROM {$this->table}_lang WHERE {$this->idname}=?",$id);
-			$query=$this->db->query("DELETE FROM {$this->table} WHERE {$this->idname}=?",$id);
-			if($this->loggear){
-				$this->db->query("INSERT INTO Logs(entidad, sentencia, idusuario, idprincipal, funcion) VALUES(?,?,?,?,?) ", Array($this->table, "DELETE FROM {$this->table} WHERE {$this->idname}={$id}", $this->session->userdata('idusuario'), $id, 'eliminarSeguro') );
-			}
-			return '';
-		}else{
-			return 'No se puede eliminar un elemento en uso';
-		}
-	}
 
 	public function getByCode($code, $codlang){
 		$query=$this->db->query("SELECT * FROM {$this->table} p JOIN Pais_lang pl ON p.id=pl.id WHERE code=? AND codlang=?", array($code, $codlang));

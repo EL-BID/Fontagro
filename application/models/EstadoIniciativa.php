@@ -10,9 +10,6 @@ class EstadoIniciativa extends MY_Model {
           $this->idname = "id";
     }
 
-    public function eliminarSeguro($id){
-		return 'No se puede eliminar un elemento en uso';
-	}
 	
 }
 
